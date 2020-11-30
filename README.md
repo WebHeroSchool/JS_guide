@@ -1,44 +1,45 @@
-#JavaScript Style Guide
+# JavaScript Style Guide
 ___
 *Наиболее разумный подход к написанию JS*
 ___
-##Правила
+## Правила
 
-1. Избегайте однобуквенных названий.
+1. Избегайте однобуквенных названий и давайте логичное название переменным и функциям.
 2. Всегда пользуйтесь `;` в конце строк кода.
-3. Используй `===` и `!==` (строгое сравнение ), вместо `==` и `!=` (нестрогое сравнение).
-4. Комментируйте код по ходу написания.
+3. Используйте `===` и `!==` (строгое сравнение ), вместо `==` и `!=` (нестрогое сравнение).
+4. Не пишите повторяющийся код.
 5. Для создания объектов используйте `{}` вместо `new Object()`.
 6. Для создания массивов используйте `[]` вместо `new Array()`.
-7. В js использовать поиск в DOM по `id`, а не по селектору.
+7. Используйте поиск в DOM по `id`, а не по селектору.
 8. Используйте camelCase для названий переменных, объектов и функций.
 9. Всегда используйте `let` или `const` для объявления переменных, не используйте `var`.
-10. Если ты не переназначаешь переменную, то используй `const` для ее объявления. И наоборот.
+10. Если не переназначаете переменную, то используйте `const` для ее объявления. И наоборот.
 ___
-### 1.Избегайте однобуквенных названий.
+### 1. Избегайте однобуквенных названий и давайте логичное название переменным и функциям.
 
 ✔ **Хорошо**
 ```js
-function query() {
-  // ...
+function makeTable() {
 }
+let userName = 'Greg';
 ```
-❌**Плохо**
+❌ **Плохо**
 ```js
-function q() {
-  // ...
+function t() {
 }
+
+let n = 'Greg';
 ```
 
 ### 2. Всегда пользуйтесь `;` в конце строк кода.
 ✔ **Хорошо**
 ```js
-var someItem = 'some string';
+let someItem = 'some string';
 function doSomething() {
   return 'something';
 }
 ```
-❌**Плохо**
+❌ **Плохо**
 ```js
 let someItem = 'some string'
 function doSomething() {
@@ -46,7 +47,7 @@ function doSomething() {
 }
 ```
 
-### 3. Используй `===` и `!==` (строгое сравнение ), вместо `==` и `!=` (нестрогое сравнение).
+### 3. Используйте `===` и `!==` (строгое сравнение ), вместо `==` и `!=` (нестрогое сравнение).
 ✔ **Хорошо**
 ```js
 typeof foo === 'undefined'
@@ -55,7 +56,7 @@ typeof foo === 'undefined'
 true === true
 foo === null
 ```
-❌**Плохо**
+❌ **Плохо**
 ```js
 a == b 
 foo == true
@@ -63,8 +64,8 @@ bananas != 1
 value == undefined
 ```
 
-### 4. Не писать повторяющийся код.
-# Если вам приходится копировать и вставлять блок кода, это признак того, что данный блок можно выделить в отдельную функцию.
+### 4. Не пишите повторяющийся код.
+##### Если вам приходится копировать и вставлять блок кода, это признак того, что данный блок можно выделить в отдельную функцию.
 ✔ **Хорошо**
 ```js
 function writeTable(row, col){  
@@ -80,7 +81,7 @@ function writeTable(row, col){
     }
 writeTable(7,7);
 ```
-❌**Плохо**
+❌ **Плохо**
 ```js
 document.write("<table border=1 cellspacing=0>");
 document.write("<tr>");
@@ -94,7 +95,7 @@ document.write("</table>");
 ### 5. Для создания объектов используйте `{}` вместо `new Object()`.
 ✔ **Хорошо**
 ```js
-var o = {
+let o = {
    name: 'Jeffrey',
    lastName = 'Way',
    someFunction : function() {
@@ -102,9 +103,9 @@ var o = {
    }
 };
 ```
-❌**Плохо**
+❌ **Плохо**
 ```js
-var o = new Object();
+let o = new Object();
 o.name = 'Jeffrey';
 o.lastName = 'Way';
 o.someFunction = function() {
@@ -114,25 +115,26 @@ o.someFunction = function() {
 ### 6. Для создания массивов используйте `[]` вместо new `Array()`.
 ✔ **Хорошо**
 ```js
-var a = ['Joe','Plumber'];
+let b = []; //пустой массив
+let a = ['Joe','Plumber'];
 ```
-❌**Плохо**
+❌ **Плохо**
 ```js
-var a = new Array();
+let a = new Array();
 a[0] = "Joe";
 a[1] = 'Plumber';
 ```
-### 7. В js использовать поиск в DOM по `id`, а не по селектору.
+### 7. Используйте поиск в DOM по `id`, а не по селектору.
 ✔ **Хорошо**
 ```
-<button class="btn btn-primary request-to-book" id="button">Request to Book</button>
+<button class="btn" id="button">Request to Book</button>
 ```
 ```js
 const button = document.getElementById('button');
 ```
-❌**Плохо**
+❌ **Плохо**
 ```
-<button class="btn btn-primary request-to-book">Request to Book</button>
+<button class="btn">Request to Book</button>
 ```
 ```js
 const button = document.querySelector('.btn');
@@ -144,11 +146,11 @@ const button = document.querySelector('.btn');
 const thisIsMyObject = {};
 function thisIsMyFunction() {}
 ```
-❌**Плохо**
+❌ **Плохо**
 ```js
 const OBJEcttsssss = {};
 const this_is_my_object = {};
-function c() {}
+function 1234c() {}
 ```
 
 ### 9. Всегда используйте `let` или `const` для объявления переменных, не используйте `var`.
@@ -156,18 +158,18 @@ function c() {}
 ```js
 const superPower = new SuperPower();
 ```
-❌**Плохо**
+❌ **Плохо**
 ```js
 uperPower = new SuperPower();
 var number = 4;
 ```
 
-### 10. Если ты не переназначаешь переменную, то используй `const` для ее объявления. И наоборот.
+### 10. Если не переназначаете переменную, то используйте `const` для ее объявления. И наоборот.
 ✔ **Хорошо**
 ```js
 const age = 18;
 ```
-❌**Плохо**
+❌ **Плохо**
 ```js
 let name = "Sara";
 ```
